@@ -3,7 +3,7 @@
 clear
 #Store the Operating System Name in 'name' variable 
 echo "Welcome to start using script to install Server Packages"
-name=$(egrep '^(NAME)=' /etc/os-release | cut -d'=' -f2 | cut-d'"' -f2 | awk '{print $1}')
+name=$(egrep '^(NAME)=' /etc/os-release | cut -d'=' -f2 | cut -d'"' -f2 | awk '{print $1}')
 # Print Operating system to on onscreen
 echo "Your Operating System is $name Linux"
 #Using function to store multiple command.
@@ -88,14 +88,14 @@ function CentOS_Nginx () {
 while true
 do
   echo "[1] Apache    [2] Ftp    [3] Samba    [4] Nginx    [5] Exit"
-  red -p "Provide Server name: " pkg
+  read -p "Provide Server name: " pkg
 
   if [ "$pkg" = "Apache" ] || [ "$pkg" = "1" ];
   then
       if [ "$name" = "Ubuntu" ] || [ "$name" = "Debian" ];
       then 
           Ubuntu_Apache
-      elif [ "$name" = "Centos" ] || [ "$name" = "Rhel" ];
+      elif [ "$name" = "CentOS" ] || [ "$name" = "Rhel" ];
       then
           CentOS_Apache
       else 
@@ -106,7 +106,7 @@ do
       if [ "$name" = "Ubuntu" ] || [ "$name" = "Debian" ];
       then 
           Ubuntu_Ftp
-      elif [ "$name" = "Centos" ] || [ "$name" = "Rhel" ];
+      elif [ "$name" = "CentOS" ] || [ "$name" = "Rhel" ];
       then
           CentOS_Ftp
       else 
@@ -117,7 +117,7 @@ do
       if [ "$name" = "Ubuntu" ] || [ "$name" = "Debian" ];
       then 
           Ubuntu_Samba
-      elif [ "$name" = "Centos" ] || [ "$name" = "Rhel" ];
+      elif [ "$name" = "CentOS" ] || [ "$name" = "Rhel" ];
       then
           CentOS_Samba
       else 
@@ -128,7 +128,7 @@ do
       if [ "$name" = "Ubuntu" ] || [ "$name" = "Debian" ];
       then 
           Ubuntu_Nginx
-      elif [ "$name" = "Centos" ] || [ "$name" = "Rhel" ];
+      elif [ "$name" = "CentOS" ] || [ "$name" = "Rhel" ];
       then
           CentOS_Nginx
       else 
